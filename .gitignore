@@ -1,9 +1,11 @@
+## CUSTOM ###
+EMENTA.md
+LISTA_ALUNOS.md
+FREQUENCIA.md
+Frequência*.png
 
 # Created by https://www.gitignore.io/api/c,jupyternotebooks
 # Edit at https://www.gitignore.io/?templates=c,jupyternotebooks
-
-## CUSTOM ###
-EMENTA.md
 
 ### C ###
 # Prerequisites
