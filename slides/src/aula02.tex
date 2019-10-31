@@ -1,0 +1,771 @@
+\documentclass[10pt]{beamer}
+
+\input{general/packages.tex}
+\input{general/configs.tex}
+\input{general/info.tex}
+
+\subtitle{Aula 2}
+\date{30 de outubro de 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Estrutura de dados}
+    
+    \begin{itemize}
+        \item Linear
+        \item Contígua
+        \item Homogênea
+        \item Estática
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vetores e matrizes (Arrays)}
+    \huge \textbf{múltiplas} variáveis $\times$ \textbf{um} array
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    float n1, n2, n3;
+    printf("Digite a nota de 3 estudantes: ");
+    scanf("%f",&n1);
+    scanf("%f",&n2);
+    scanf("%f",&n3);
+    float media = (n1 + n2 + n3) / 3.0;
+    if(n1 > media) printf("nota: %f\n", n1);
+    if(n2 > media) printf("nota: %f\n", n2);
+    if(n3 > media) printf("nota: %f\n", n3);
+    return 0;
+}
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    float n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12;
+    printf("Digite a nota de 100 estudantes: ");
+    scanf("%f",&n1);
+    scanf("%f",&n2);
+    scanf("%f",&n3);
+    scanf("%f",&n4);
+    scanf("%f",&n5);
+    scanf("%f",&n6);
+    scanf("%f",&n7);
+    scanf("%f",&n8);
+    scanf("%f",&n9);
+    scanf("%f",&n10);
+    scanf("%f",&n11);
+    scanf("%f",&n12);
+}
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Declarando um array}
+    
+    \bigskip
+    
+    \begin{verbatim}
+tipo nome[tamanho];
+
+float notas[100];
+    \end{verbatim}
+    
+    \Large
+    tamanho é um valor inteiro e não pode ser uma variável
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Acessando um elemento}
+    
+    \bigskip
+    
+    \begin{verbatim}
+nome[índice]
+    \end{verbatim}
+    
+    \Large
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] $0 \leq \text{índice} \leq (\text{tamanho} - 1)$ \faExclamationTriangle
+        \item [] acesso funciona como uma variável
+        \item [] índice informa quantas posições pular na memória
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int notas[100];
+    int i;
+    for (i = 0; i < 100; i++){
+        printf("Digite a nota do aluno %d", i);
+        scanf("%d", &notas[i]);
+    }
+    return 0;
+}
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Arrays multidimensionais}
+    
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+tipo nome[tam_1][tam_2]...[tam_n];
+
+int arr[100][200][50];
+    \end{verbatim}
+    
+    
+    2 dimensões $\Longrightarrow$ matriz
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Acessando um elemento}
+    
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+nome[ind_1][ind_2]...[ind_n]
+    \end{verbatim}
+    
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] $0 \leq \text{ind\_1} \leq (\text{tam\_1} - 1)$
+        \item [] $0 \leq \text{ind\_2} \leq (\text{tam\_2} - 1)$
+        \item [] ...
+        \item [] $0 \leq \text{ind\_3} \leq (\text{tam\_n} - 1)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vetores e matrizes (Arrays)}
+    \huge
+    arrays são \textbf{sempre} armazenados linearmente na memória
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \huge
+    \textbf{Inicializando um array}
+    
+    \begin{itemize}
+        \item Laço \textbf{for}
+        \item Atribuição direta
+        \item Operador chaves $\{ \}$
+
+        \begin{itemize}
+            \Large
+            \item Com/sem tamanho
+            \item Total/parcial
+        \end{itemize}
+    \end{itemize}
+    
+    \Large
+    
+    não se pode atribuir um array a outro \faExclamationTriangle
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \begin{verbatim}
+int i; /* LAÇO FOR */
+int arr[3];
+for(i = 0; i < 3; i++) {
+    arr[i] = 2 * i;
+}
+
+int arr[3]; /* ATRIBUIÇÃO DIRETA */
+arr[0] = 0;
+arr[1] = 2;
+arr[2] = 4;
+
+int arr[3] = {0, 2, 4}; /* OPERADOR CHAVES */
+int arr[]  = {0, 2, 4}; // sem tamanho
+int arr[3] = {0, 2};    // parcial
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Vetores e matrizes (Arrays)}
+    \begin{verbatim}
+int i, k; /* LAÇO FOR */
+int arr[2][2];
+for(i = 0; i < 2; i++) {
+    for(j = 0; j < 2; j++) {
+        arr[i][j] = i + j;
+    }
+}
+
+int arr[2][2]; /* ATRIBUIÇÃO DIRETA */
+arr[0][0] = 0;
+arr[0][1] = 1;
+arr[1][0] = 1;
+arr[1][1] = 2;
+
+int arr[2][2] = {0, 1, 1, 2}; /* OPERADOR CHAVES */
+int arr[2][2] = {{0, 1}, {1, 2}};
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Vetores e matrizes (Arrays)}
+    \huge \textbf{Exercícios}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \huge
+    \textbf{Declarada como um array comum do tipo char}
+    
+    \bigskip
+    
+    \begin{verbatim}
+char nome[tamanho];
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Arrays de caracteres (Strings)}
+    \huge
+    \textbf{Principal diferença}
+    
+    \bigskip
+    
+    caractere \texttt{'\textbackslash 0'} \textbf{obrigatório} para indicar o final da string
+    
+    \vfill
+    
+    \Large
+    string de tamanho $x$ armazena $x - 1$ caracteres
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \huge
+    \textbf{Inicializando uma string}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+char str[20] = {'U', 'F', 'A', 'L', '\0'};
+char str[20] = "UFAL";
+    \end{verbatim}
+    
+    \vfill
+    
+    \Large
+    não se pode atribuir uma string a outra \faExclamationTriangle
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \begin{verbatim}
+/* COPIANDO UMA STRING */
+    
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i;
+    char str1[20] = "Hello World";
+    char str2[20];
+    for (i = 0; str1[i] != '\0'; i++)
+        str2[i] = str1[i];
+    str2[i] = '\0';
+    return 0;
+}
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \huge \textbf{Lendo uma string do teclado}
+    
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+char string[20];
+    
+scanf("%s", string);
+gets(string);
+fgets(string, 20, stdin);
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Arrays de caracteres (Strings)}
+    \Large
+    \begin{itemize}
+        \item [\faThumbsODown] \texttt{scanf}: desconsidera espaços 
+        \item [\faThumbsODown] \texttt{gets}: não evita estouro do \textit{buffer}
+        \item [\faThumbsOUp] \texttt{fgets}: mais recomendada, não desconsidera espaços, impede o estouro do \textit{buffer} e leva em conta o \texttt{'\textbackslash n'}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \huge \textbf{Escrevendo uma string na tela}
+    
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+char string[20] = "UFAL";
+    
+printf("%s", string);
+fputs(string, stdout);
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \huge \textbf{Funções para manipulação de strings}
+    
+    \bigskip
+
+    \begin{verbatim}
+#include <string.h>
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays de caracteres (Strings)}
+    \Large
+    \begin{itemize}
+        \item \texttt{strlen(str)}
+        
+        \begin{itemize}
+            \large
+            \item retorna tamanho da string
+            \item não considera o \texttt{'\textbackslash 0'}
+        \end{itemize}
+
+        \item \texttt{strcpy(dest, orig)}
+        
+        \begin{itemize}
+            \large
+            \item copia uma string em outra \faExclamationTriangle
+        \end{itemize}
+
+        \item \texttt{strcat(dest, orig)}
+        
+        \begin{itemize}
+            \large
+            \item insere uma string no final de outra \faExclamationTriangle
+        \end{itemize}
+
+        \item \texttt{strcomp(str1, str2)}
+        
+        \begin{itemize}
+            \large
+            \item checa se duas strings são iguais
+            \item \textit{case-sensitive}
+            \item \texttt{0}: iguais / \texttt{1}: diferentes
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Arrays de caracteres (Strings)}
+    \huge \textbf{Exercícios}
+\end{frame}
+
+\begin{frame}{Tipos definidos pelo programador}
+    \huge
+    \textbf{Tipos básicos}: \texttt{char}, \texttt{int}, \texttt{float}, \texttt{double}, \texttt{void}
+
+    \bigskip
+
+    \textbf{Tipos compostos}: \texttt{array}
+\end{frame}
+
+\begin{frame}{Tipos definidos pelo programador}
+    \huge \textbf{Comandos usados para definir novos tipos de dados}
+    
+    \begin{itemize}
+        \item \texttt{struct} (estruturas/registros)
+        \item \texttt{union} (uniões)
+        \item \texttt{enum} (enumerações)
+        \item \texttt{typedef}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Declarando uma estrutura}
+    
+    \bigskip
+    
+    \large
+    \begin{columns}
+    \begin{column}{0.35\textwidth}
+        \begin{verbatim}
+struct nome {
+    tipo1 campo1;
+    tipo2 campo2;
+    ...
+    tipoN campoN;
+};
+        \end{verbatim}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+        \begin{verbatim}
+| struct cadastro {
+|     char nome[50];
+|     int  idade;
+|     char rua[100];
+|     int  numero;
+| };
+        \end{verbatim}
+    \end{column}
+    \end{columns}
+
+    \vfill
+    
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] variável que agrupa variáveis
+        \item [] estruturas diferentes podem ter campos iguais
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Declarando uma variável do tipo da estrutura}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+struct nome {
+    tipo1 campo1;
+    tipo2 campo2;
+    ...
+    tipoN campoN;
+} variavel1, variavel2;
+
+struct nome variavel3, variavel4;
+    \end{verbatim}
+    
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Acessando os campos de uma estrutura (operador ponto \texttt{'.'})}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+struct cadastro c;
+
+strcpy(c.nome, "Thiago");
+c.idade = 473;
+strcpy(c.rua, "Rua Principal");
+c.numero = 1082;
+    \end{verbatim}
+    
+    \vfill
+    
+    cada campo pode ser visto como uma variável comum
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Inicialização de estruturas}
+    
+    \large
+    \begin{verbatim}
+/* TOTAL */
+struct cadastro c = {
+    "Thiago",
+    473,
+    "Rua Principal",
+    1082
+};
+/* PARCIAL */
+struct cadastro c = {"Thiago", 473};
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Array de estruturas}
+
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+struct cadastro c1, c2, c3, c4;
+
+struct cadastro c[4];
+c[2].idade = 200;
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Atribuição entre estruturas}
+    
+    \bigskip
+    
+    \large
+    \begin{columns}
+    \begin{column}{0.35\textwidth}
+        \begin{verbatim}
+struct ponto {
+    int x;
+    int y;
+};
+        \end{verbatim}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+        \begin{verbatim}
+| struct outro_ponto {
+|    int x;
+|    int y;
+| };
+        \end{verbatim}
+    \end{column}
+    \end{columns}
+
+    \begin{verbatim}
+struct ponto p1, p2 = {1, 2};
+struct outro_ponto p3 = {3, 4};
+
+p1 = p2; /* OK */
+p1 = p3; /* ERRADO */
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Estruturas aninhadas}
+
+    \large
+    \begin{columns}
+    \begin{column}{0.35\textwidth}
+        \begin{verbatim}
+struct endereco {
+    char rua[50];
+    int  numero;
+};
+
+        \end{verbatim}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+        \begin{verbatim}
+| struct cadastro {
+|     char nome[50];
+|     int  idade;
+|     struct endereco end;
+| };
+        \end{verbatim}
+    \end{column}
+    \end{columns}
+
+    \begin{verbatim}
+struct cadastro cad;
+cad.end.numero = 10;
+    \end{verbatim}
+    
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Declarando uma união}
+    
+    \Large
+    \begin{verbatim}
+union nome {
+    tipo1 campo1;
+    tipo2 campo2;
+    ...
+    tipoN campoN;
+}
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{\texttt{struct} $\times$ \texttt{union}}
+    
+    \vfill
+    
+    \large
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] estrutura reserva espaço para armazenar todos os campos
+        \item [] união reserva espaço para o maior campo e a memória é compartilhada
+        \item [] apenas um membro pode ser armazenado por vez
+        \item [] a modificação de um elemento afeta todos
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \large
+    \begin{verbatim}
+union exemplo {
+    short int x;     /* TAMANHO: 2 BYTES */
+    unsigned char c; /* TAMANHO: 1 BYTE */
+}
+
+union exemplo u;     /* TAMANHO: 2 BYTES */
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Principal uso da união}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+union exemplo {
+  short int x;        /* TAMANHO: 2 BYTES */
+  unsigned char c[2]; /* TAMANHO: 2 BYTES */
+}
+    \end{verbatim}
+    
+    subdividir um tipo básico em um array de partes menores
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Declarando uma enumeração}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+enum nome { identificadores };
+enum semana {
+    Domingo, Segunda, Terca, Quarta,
+    Quinta, Sexta, Sabado
+};
+    \end{verbatim}
+    
+    \large
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] identificadores são palavras separadas por vírgula
+        \item [] palavras constituem as constantes criadas pela enumeração
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Declarando uma variável do tipo da enumeração}
+    
+    \bigskip
+    
+    \large
+    \begin{verbatim}
+enum semana {
+    Domingo, Segunda, Terca, Quarta,
+    Quinta, Sexta, Sabado
+} s1 s2;
+
+enum semana s3;
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    Enumeração pode ser vista como uma \textbf{lista de constantes}
+    
+    \bigskip
+    
+    Cada constante é representada por um \textbf{número inteiro}, começando do \texttt{0}
+    
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge
+    \textbf{Valores das constantes podem ser definidos pelo programador}
+    
+    \large
+    \begin{verbatim}
+enum semana {
+    Domingo=1,
+    Segunda, /* =  2 */
+    Terca,   /* =  3 */
+    Quarta=7,
+    Quinta,  /* =  8 */
+    Sexta,   /* =  9 */
+    Sabado   /* = 10 */
+}; /* VALORES DA TABELA ASCII SÃO VÁLIDOS */
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge \textbf{Comando \texttt{typedef}}
+    
+    \bigskip
+    
+    \Large
+    \begin{verbatim}
+typedef tipo_existente novo_nome;
+typedef int inteiro;
+    \end{verbatim}
+    
+    \large
+    \setlength{\leftmargini}{0pt}
+    \begin{itemize}
+        \item [] não cria um novo tipo, apenas um sinônimo para um tipo existente
+        \item [] variáveis \texttt{tipo\_existente} e \texttt{novo\_nome} podem ser usadas conjuntamente (são do mesmo tipo)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge \textbf{\texttt{typedef}$+$\texttt{struct}}
+    
+    \bigskip
+    
+    \large
+    \begin{columns}
+    \begin{column}{0.40\textwidth}
+        \begin{verbatim}
+typedef struct cad {
+  char nome[50];
+  int  idade;
+  char rua[100];
+  int  numero;
+} Cadastro;
+        \end{verbatim}
+    \end{column}
+    \begin{column}{0.50\textwidth}
+        \begin{verbatim}
+| typedef struct {
+|   char nome[50];
+|   int  idade;
+|   char rua[100];
+|   int  numero;
+| } Cadastro;
+        \end{verbatim}
+    \end{column}
+    \end{columns}
+    
+    \begin{verbatim}
+typedef struct cad Cadastro;
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Tipos definidos pelo programador}
+    \huge \textbf{Exercícios}
+\end{frame}
+
+\end{document}
