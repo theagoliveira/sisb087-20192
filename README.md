@@ -42,6 +42,7 @@
 
 - :brazil: ASCÊNCIO, A. F. G.; CAMPOS, E. A. V. **Fundamentos da Programação de Computadores**
 - :brazil: BACKES, A. **Linguagem C completa e descomplicada**
+  - [Material complementar](https://programacaodescomplicada.wordpress.com/complementar/)
 - :brazil: DEITEL, H. M.; DEITEL, P. J. **C: Como Programar**
   - :us: ***C: How to Program***
 - :brazil: EDELWEISS, N.; LIVI, M. A. C. **Algoritmos e Programação com Exemplos em Pascal e C**
