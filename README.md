@@ -99,7 +99,7 @@
 | ~~04~~ | ~~16/10/2019~~ |                                                                                  |
 | 05     | 23/10/2019     | Apresentação da disciplina / Introdução a estruturas de dados                    |
 | 06     | 30/10/2019     | Arrays, strings, tipos definidos pelo programador (struct, union, enum, typedef) |
-| 07     | 06/11/2019     |                                                                                  |
+| 07     | 06/11/2019     | Funções                                                                          |
 | 08     | 13/11/2019     | Possível AB1                                                                     |
 |        | 20/11/2019     | Feriado                                                                          |
 | 09     | 27/11/2019     |                                                                                  |
