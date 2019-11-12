@@ -44,17 +44,17 @@
 
 \begin{frame}{Pesquisa}
     \setbeamertemplate{itemize/enumerate body begin}{\large}
-    
+
     \begin{enumerate}
     \item Pode trazer um computador para aulas práticas?
     \item Já usou \textbf{Git}?
     \item Já usou \textbf{GitHub}?
     \item Consegue compreender textos em \textbf{inglês}?
     \end{enumerate}
-    
+
     \bigskip
     \bigskip
-    
+
     \centering
     \texttt{<NOME COMPLETO> <E-MAIL> <RESPOSTAS>}
 \end{frame}
@@ -118,7 +118,7 @@
 \begin{frame}{Bibliografia}
     \huge
     Livros sugeridos no \alert{repositório}
-    
+
     \Large
     \begin{itemize}
         \item Programação em C
@@ -141,8 +141,8 @@
             23 & 11 & 2019 & Prazo final para digitação da \alert{AB1} \\
             12 & 02 & 2020 & \textit{Possível} dia da \alert{AB2} \\
             17 & 02 & 2020 & Prazo final para digitação da \alert{AB2} \\
-            17--22 & 02 & 2020 & Período de \alert{reavaliação} \\ 
-            27--29 & 02 & 2020 & Período de \alert{provas finais} \\ 
+            17--22 & 02 & 2020 & Período de \alert{reavaliação} \\
+            27--29 & 02 & 2020 & Período de \alert{provas finais} \\
             \bottomrule
         \end{tabular}
     \end{center}
@@ -153,21 +153,21 @@
 \setbeamertemplate{frame footer}{SCHILDT, H. C Completo e Total}
 \begin{frame}{Introdução a Estruturas de Dados}
     \Large
-    
+
     \onslide<1->{
     \begin{center}
         \setlength{\fboxsep}{2\fboxsep}\boxed{\textbf{$\text{Programa} = \text{Algoritmos} + \text{Estruturas de Dados}$}}
     \end{center}
     }
-    
+
     \bigskip
-    
+
     \onslide<2->{
     Escolha e implementação da estrutura de dados \textbf{são tão importantes quanto} as rotinas
     }
-    
+
     \bigskip
-    
+
     \onslide<3->{
     O tipo de estrutura é \textbf{determinado pela natureza} do problema
     }
@@ -181,15 +181,15 @@
     \onslide<1->{
     \textit{Tipos abstratos de dados} podem ser implementados \textbf{corretamente} com diferentes estruturas de dados
     }
-    
+
     \bigskip
-    
+
     \onslide<2->{
     A forma como as operações são realizadas por uma estrutura podem \textbf{melhorar} (ou \textbf{piorar}) drasticamente a performance de um programa
     }
-    
+
     \bigskip
-    
+
     \onslide<3->{
     Projeto: melhor prevenir do que remediar
     }
@@ -201,9 +201,9 @@
     \Large
 
     Três motivos para usar estruturas de dados:
-    
+
     \large
-    
+
     \begin{itemize}
         \setlength\itemsep{1em}
         \onslide<1->{\item \textbf{Eficiência}: a forma de organização dos dados pode aumentar a \alert{velocidade de execução} de algoritmos (de busca e/ou ordenação, por exemplo)}
@@ -217,7 +217,7 @@
     \Large
 
     Características:
-    
+
     \begin{itemize}
         \onslide<1->{\item Estrutura Linear x Não-linear}
         \onslide<2->{\item Estrutura Contígua x Ligada}
@@ -254,7 +254,7 @@
     \Large
 
     Exemplos:
-    
+
     \begin{itemize}
         \item TAD Ponto
         \item TAD Círculo
@@ -264,7 +264,7 @@
 \begin{frame}[fragile]{Exercício: TAD Matriz}
     \begin{verbatim}
 typedef struct matriz Matriz;
-        
+
 Matriz* mat_cria(int m, int n);
 void mat_libera(Matriz* mat);
 float mat_acessa(Matriz* mat, int i, int j);
