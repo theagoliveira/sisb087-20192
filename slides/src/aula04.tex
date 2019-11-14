@@ -1,0 +1,148 @@
+\documentclass[10pt]{beamer}
+
+\input{general/packages.tex}
+\input{general/configs.tex}
+\input{general/info.tex}
+
+\subtitle{Aula 4}
+\date{13 de novembro de 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Ponteiros}
+  \vfill
+  \LARGE
+  Tipo \textbf{especial} de variável que armazena um \textbf{endereço na memória} ao invés de um valor
+  \vfill
+  \large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Toda informação está armazenada na memória
+      \item [] Ponteiros "apontam" para endereços de memória
+      \item [] programador $\rightarrow$ nome, programa $\rightarrow$ endereço
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Ponteiros podem ser \alert{perigosos \faExclamationTriangle}}
+  \vfill
+  \large
+  Podem apontar para um espaço na memória que está sendo usado para um outro propósito
+\end{frame}
+
+\begin{frame}[fragile]{Ponteiros}
+  \huge
+  \textbf{Declaração de ponteiro}
+  \vfill
+  \Large
+  \begin{verbatim}
+tipo_do_ponteiro *nome_do_ponteiro;
+  \end{verbatim}
+  \vfill
+  \large
+  Não confundir com o operador de multiplicação!
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Inicialização e atribuição}
+  \vfill
+  \large
+  \begin{itemize}
+    \item \texttt{int *p;} (aponta para um \textbf{lugar indefinido} \faExclamationTriangle)
+    \item \texttt{p = NULL;} (aponta para \textbf{lugar nenhum} -- diferente)
+    \item \texttt{p = }\&\texttt{x;} (aponta para variável \texttt{x})
+    \item \texttt{printf("\%d", *p)} (imprime o valor guardado na variável apontada por \texttt{p})
+    \item \texttt{int *p2 = p;} (ponteiro \texttt{p2} aponta para o mesmo lugar que \texttt{p} \faExclamationTriangle)
+  \end{itemize}
+  \vfill
+  \large
+  \&: operador de endereçamento
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Operadores}
+  \vfill
+  \Large
+  \textbf{*}: Usado na \textbf{declaração} de um ponteiro e na \textbf{obtenção do conteúdo} para onde ele aponta (\alert{dois usos distintos})
+  \vfill
+  \Large
+  \textbf{\&}: Usado para \textbf{obter o endereço} de uma variável
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Aritmética com ponteiros}
+  \vfill
+  \Large
+  \begin{itemize}
+    \item Adição e subtração: incrementam ou decrementam o tamanho \textbf{em bytes} do tipo do ponteiro \faExclamationTriangle
+    \item Outras operações: não são realizadas no ponteiro, mas no seu conteúdo (\textbf{\texttt{*p}})
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  Também é possível comparar ponteiros com operadores relacionais: \texttt{==}, \texttt{!=}, \texttt{>}, \texttt{<}, \texttt{>=}, \texttt{<=}
+
+\end{frame}
+
+\begin{frame}{Ponteiros}
+  \huge
+  \textbf{Ponteiros genéricos}
+  \vfill
+  \large
+  \begin{itemize}
+    \item \texttt{void *nome\_do\_ponteiro};
+    \item Aponta para qualquer tipo de dado \faExclamationTriangle
+    \item Acesso precisa ser feito com um \textit{typecast}: \texttt{*(int*)p}
+    \item Incremento é feito de byte em byte
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Ponteiros}
+  \huge
+  \textbf{Ponteiros e arrays}
+  \vfill
+  \Large
+  O nome de um array é apenas um \textbf{ponteiro para o primeiro elemento} do array
+  \vfill
+  \large
+  \begin{lstlisting}
+ponteiro = nome_array
+ponteiro = %*\textnormal{\&}*)nome_array[0]
+
+ponteiro[i] = 2;
+*(ponteiro + i) = 2;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ponteiros}
+  \huge
+  \textbf{Array de ponteiros}
+  \vfill
+  \Large
+  \begin{lstlisting}
+tipo_de_dado *nome_do_array[tamanho];
+
+nome_do_array[indice] = %*\textnormal{\&}*)variavel
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ponteiros}
+  \huge
+  \textbf{Ponteiro para ponteiro}
+  \vfill
+  \Large
+  \begin{verbatim}
+tipo_de_dado **nome_do_ponteiro;
+  \end{verbatim}
+\end{frame}
+\end{document}
