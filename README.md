@@ -2,7 +2,7 @@
 
 | Código  | Semestre | Carga Horária | PPC     | Turma              | Horário               | Sala |
 | ------- | -------- | ------------- | ------- | ------------------ | --------------------- | ---- |
-| SISB087 | 3º       | 72h           | 02/2019 | 2019.2 (27 alunos) | Quarta, 19:00 - 22:30 | 5    |
+| SISB087 | 3º       | 72h           | 02/2019 | 2019.2 (28 alunos) | Quarta, 19:00 - 22:30 | 5    |
 
 - [Lista de discussão](#lista-de-discuss%c3%a3o)
 - [Ementa](#ementa)
