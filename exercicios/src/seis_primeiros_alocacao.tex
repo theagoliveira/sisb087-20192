@@ -1,0 +1,41 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fontawesome}
+\usepackage[top=3cm,left=44mm,right=44mm,bottom=2cm]{geometry}
+\usepackage[brazil]{babel}
+
+\usepackage{sourcecodepro}
+\renewcommand*\familydefault{\ttdefault}
+
+\title{Linguagem C completa e descomplicada -- Seis primeiros exercícios do capítulo 11}
+\author{Prof. Thiago Cavalcante}
+\date{}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+
+\sloppy
+\raggedright
+
+\setcounter{section}{10}
+\section{Alocação dinâmica}
+
+\setcounter{subsection}{3}
+\subsection{Exercícios}
+
+\begin{enumerate}
+  \item Escreva um programa que mostre o tamanho em byte que cada tipo de dados ocupa na memória: \textbf{char}, \textbf{int}, \textbf{float}, \textbf{double}.
+  \item Crie uma estrutura representando um aluno de uma disciplina. Essa estrutura deve conter o número de matrícula do aluno, seu nome e as notas de três provas. Escreva um programa que mostre o tamanho em byte dessa estrutura.
+  \item Crie uma estrutura chamada \textbf{Cadastro}. Essa estrutura deve conter o nome, a idade e o endereço de uma pessoa. Agora, escreva uma função que receba um inteiro positivo \textbf{N} e retorne o ponteiro para um vetor de tamanho \textbf{N}, alocado dinamicamente, dessa estrutura. Solicite também que o usuário digite os dados desse vetor dentro da função.
+  \item Elabore um programa que leia do usuário o tamanho de um vetor a ser lido. Em seguida, faça a alocação dinâmica desse vetor. Por fim, leia o vetor do usuário e o imprima.
+  \item Faça um programa que leia um valor inteiro N não negativo. Se o valor de \textbf{N} for inválido, o usuário deverá digitar outro até que ele seja válido (ou seja, positivo). Em seguida, leia um vetor \textbf{V} contendo \textbf{N} posições de inteiros, em que cada valor deverá ser maior ou igual a 2. Esse vetor deverá ser alocado dinamicamente.
+  \item Escreva um programa que \textbf{aloque dinamicamente uma matriz} de inteiros. As dimensões da matriz deverão ser lidas do usuário. Em seguida, escreva uma função que receba um valor e retorne 1, caso o valor esteja na matriz, ou retorne 0, no caso contrário.
+\end{enumerate}
+
+\end{document}
