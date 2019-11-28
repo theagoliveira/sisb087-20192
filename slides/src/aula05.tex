@@ -1,0 +1,604 @@
+\documentclass[10pt]{beamer}
+
+\input{general/packages.tex}
+\input{general/configs.tex}
+\input{general/info.tex}
+
+\subtitle{Aula 5}
+\date{27 de novembro de 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Alocação dinâmica}
+  \huge
+  \textbf{Uma variável é uma \alert{posição na memória previamente* reservada} que pode armazenar um dado}
+  \vfill
+  *previamente $\rightarrow$ toda variável deve ser \alert{declarada}
+\end{frame}
+
+\begin{frame}{Alocação dinâmica}
+  \huge
+  Nem sempre é possível saber quanta memória um programa vai precisar (ex. funcionários)
+\end{frame}
+
+\begin{frame}{Alocação dinâmica}
+  \huge
+  \textbf{A linguagem C permite \alert{alocar dinamicamente} blocos de memórias usando ponteiros}
+  \vfill
+  \Large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Alocar $\rightarrow$ reservar
+      \item [] Dinamicamente $\rightarrow$ em tempo de execução
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Alocação dinâmica}
+  \huge
+  O programa requisita, \textbf{em tempo de execução}, um espaço de memória ao computador, o qual retorna um \textbf{endereço para o início} desse espaço (que é armazenado em um \textbf{ponteiro})
+\end{frame}
+
+\begin{frame}{Alocação dinâmica}
+  \huge
+  \textbf{Funções para alocação de memória (\texttt{stdlib.h})}
+  \vfill
+  \LARGE
+  \begin{itemize}
+    \item \texttt{sizeof}
+    \item \texttt{malloc}
+    \item \texttt{calloc}
+    \item \texttt{realloc}
+    \item \texttt{free}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\texttt{sizeof}}
+  \vfill
+  Usada para saber quantos bytes ocupa \textbf{um único elemento} de um determinado tipo
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+printf("%d", sizeof(int)); // resultado: 4
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\texttt{malloc}}
+  \vfill
+  \Large
+  \begin{lstlisting}[language=C]
+void *malloc (unsigned int num);
+  \end{lstlisting}
+  \vfill
+  \large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Aloca uma quantidade \textbf{\texttt{num}} de bytes de memória e retorna um \textbf{ponteiro genérico (\texttt{void*})} para o início do bloco
+      \item [] Programador \textbf{deve atribuir um tipo} ao ponteiro
+      \item [] Se houver erro a função retorna \textbf{\texttt{NULL}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \large
+  \begin{lstlisting}[language=C]
+int i;
+int *p;
+
+p = (int *) malloc(5 * sizeof(int));
+
+for(i = 0; i < 5; i++) {
+  p[i] = 10 + i;
+  // *(p + i) = 10 + i;
+}
+  \end{lstlisting}
+  \vfill
+  \large
+  \faExclamationTriangle \quad Prestar atenção no tipo de dados e na quantidade
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\texttt{calloc}}
+  \vfill
+  \Large
+  \begin{lstlisting}[language=C]
+void *calloc (unsigned int num,
+              unsigned int size);
+  \end{lstlisting}
+  \vfill
+  \large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Aloca uma quantidade $\textnormal{\textbf{\texttt{num}}} \times \textnormal{\textbf{\texttt{size}}}$ de bytes de memória e retorna um \textbf{ponteiro genérico (\texttt{void*})} para o início do bloco
+      \item [] Inicializa todos os bits do bloco com \textbf{zero}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \large
+  \begin{lstlisting}[language=C]
+int i;
+int *p;
+
+// p = (int *) malloc(5 * sizeof(int));
+p = (int *) calloc(5, sizeof(int));
+
+for(i = 0; i < 5; i++) {
+  p[i] = 10 + i;
+  // *(p + i) = 10 + i;
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\texttt{realloc}}
+  \vfill
+  \Large
+  \begin{lstlisting}[language=C]
+void *realloc (void *ptr,
+               unsigned int num);
+  \end{lstlisting}
+  \vfill
+  \large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Modifica para \textbf{\texttt{num}} bytes o tamanho da memória previamente alocada e apontada por \textbf{\texttt{ptr}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \large
+  \vfill
+  \begin{lstlisting}[language=C]
+int *p;
+p = malloc(5 * sizeof(int));
+
+//Diminui o tamanho do array
+p = realloc(p, 3 * sizeof(int));
+
+//Aumenta o tamanho do array
+p = realloc(p, 10 * sizeof(int));
+  \end{lstlisting}
+  \vfill
+  Quando o tamanho é maior, o bloco recém-alocado tem valor \textbf{indeterminado} (não ocorre inicialização)
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\texttt{free}}
+  \vfill
+  \Large
+  \begin{lstlisting}[language=C]
+void free (void *p);
+  \end{lstlisting}
+  \vfill
+  \large
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] A memória alocada dinamicamente (\texttt{malloc}, \texttt{calloc} ou \texttt{realloc}) \textbf{não é liberada automaticamente} pelo programa \faExclamationTriangle
+      \item [] Essa memória precisa ser liberada com a função \textbf{\texttt{free}}, que recebe o ponteiro para o início do bloco
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{\alert{Sempre} libere a memória que não for mais utilizar e não deixe ponteiros "soltos"}
+  \vfill
+  \begin{lstlisting}[language=C]
+free(p);
+p = NULL;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Alocação dinâmica}
+  \huge
+  \textbf{Arrays multidimensionais}
+  \vfill
+  \LARGE
+  \begin{itemize}
+    \item Usando array unidimensional
+    \item Usando ponteiro para ponteiro
+    \item Usando ponteiro para ponteiro + array unidimensional
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \LARGE
+  \textbf{Arquivos são coleções de bytes} armazenados em um dispositivo de armazenamento (como um disco rídigo, por exemplo)
+  \vfill
+  Um arquivo pode ser interpretado como um texto, uma imagem, um vídeo etc.
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{Vantagens}
+  \vfill
+  \Large
+  \begin{itemize}
+    \item Armazenamento durável
+    \item Grandes quantidades de informação
+    \item Acesso sequencial ou não
+    \item Acesso concorrente (vários programas)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \LARGE
+  \centering
+  \textbf{arquivos texto $\times$ arquivos binários}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{Arquivos texto}
+  \vfill
+  \Large
+  \begin{itemize}
+    \item Podem ser mostrados \textbf{diretamente na tela} ou modificados em um editor de texto como o \textbf{bloco de notas}
+    \item Dados são gravados como \textbf{caracteres de 8 bits da tabela ASCII} (é feita uma conversão)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{Arquivos binários}
+  \vfill
+  \Large
+  \begin{itemize}
+    \item Armazenam uma \textbf{sequência de bits} sujeita às convenções dos programas que a geraram
+    \item São gravados \textbf{exatamente como estão organizados na memória}, sem conversão
+    \item Exemplos: arquivos executáveis, arquivos compactados etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{Leitura e escrita}
+  \vfill
+  \LARGE
+  Funções da biblioteca \textbf{\texttt{stdio.h}}
+  \vfill
+  \begin{itemize}
+    \item Abrir/fechar
+    \item Leitura/escrita de caracteres/bytes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Ponteiro para arquivo}
+  \vfill
+  \begin{lstlisting}[language=C]
+FILE *p;
+  \end{lstlisting}
+  \vfill
+  \large
+  Aponta para uma área na memória chamada de \textbf{buffer}, que contém informações sobre o arquivo aberto
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Abrindo um arquivo: \texttt{fopen}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+FILE *fopen(char *nome_do_arquivo, char *modo)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] \textbf{\texttt{nome\_do\_arquivo}} pode ser um caminho \textbf{absoluto} ou \textbf{relativo}, com relação à localização do programa
+      \item [] Retorna \textbf{\texttt{NULL}} caso ocorra um erro
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \large
+  \textbf{Localização do programa}
+
+  \texttt{"C:\textbackslash Programas\textbackslash programa.c"}
+  \vfill
+  \textbf{Localização do arquivo (absoluta)}
+
+  \texttt{"C:\textbackslash Programas\textbackslash Arquivos\textbackslash arquivo.txt"}
+  \vfill
+  \textbf{Localização do arquivo (relativa)}
+
+  \texttt{".\textbackslash Arquivos\textbackslash arquivo.txt"}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{@{}ll@{}}
+      \toprule
+      \textbf{Modo} & \textbf{Função} \\
+      \midrule
+      \texttt{"r"} & Leitura. Arquivo deve existir. \\
+      \texttt{"w"} & Escrita. Cria arquivo, se não houver. Apaga o anterior, se ele existir. \\
+      \texttt{"a"} & Escrita. Os dados serão adicionados no fim do arquivo (\textit{append}). \\
+      \texttt{"r+"} & Leitura/escrita. O arquivo deve existir e pode ser modificado. \\
+      \texttt{"w+"} & Leitura/escrita. Cria arquivo se não houver. Apaga o anterior se ele existir. \\
+      \texttt{"a+"} & Leitura/escrita. Os dados serão adicionados no fim do arquivo (\textit{append}). \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vfill
+  \large
+  Para arquivos binários, adiciona-se um \textbf{\texttt{b}} ao modo
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Saindo de um programa em caso de erro}
+  \vfill
+  \Large
+  \begin{lstlisting}[language=C]
+void exit(int codigo_de_retorno)
+  \end{lstlisting}
+  \vfill
+  \large
+  Convenção: \texttt{\textbf{codigo\_de\_retorno}} é \texttt{\textbf{0}} para um término normal e outro número caso ocorra um problema
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Fechando um arquivo: \texttt{fclose}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fclose(FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna \texttt{\textbf{0}} no caso de sucesso e outro número, caso contrário
+      \item [] Ao fechar um arquivo, todo caractere que tenha permanecido no buffer é \textbf{gravado} (também ocorre quando o buffer fica cheio)
+      \item [] A função \texttt{\textbf{exit}} fecha todos os arquivos abertos
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Escrevendo um char: \texttt{fputc}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fputc(int c, FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna a constante \textbf{\texttt{EOF}}, se houver erro na escrita, ou o \textbf{próprio caractere}, se ele foi escrito com sucesso
+      \item [] Após a escrita, o \textbf{indicador de posição interna} é avançado em um caractere (pode ser visto como o \textbf{cursor})
+      \item [] Pode-se escrever na tela com o arquivo \textbf{\texttt{stdout}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Lendo um char: \texttt{fgetc}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fgetc(FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+    \item [] Retorna a constante \textbf{\texttt{EOF}}, se houver erro na leitura, ou o \textbf{próprio caractere}, se ele foi lido com sucesso
+    \item [] Após a leitura, o \textbf{indicador de posição interna} é avançado em um caractere
+      \item [] Pode-se ler do teclado com o arquivo \textbf{\texttt{stdin}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Fim do arquivo: \texttt{feof}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int feof(FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna \texttt{\textbf{0}} caso o fim ainda não tenha sido atingido e outro número, caso contrário
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Posição atual: \texttt{ftell}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+long int ftell(FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Para \textbf{arquivos binários}, o valor retornado indica o \textbf{número de bytes lidos} a partir do início do arquivo
+      \item [] Para arquivos \textbf{texto}, \textbf{não existe garantia} de que o valor retornado seja o número exato de bytes lidos a partir do início do arquivo (mas esse valor pode ser usado para se retornar ao mesmo ponto, de qualquer forma)
+      \item [] Em caso de erro, retorna -1
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Escrevendo uma string: \texttt{fputs}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fputs(char *str,FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna a constante \textbf{\texttt{EOF}}, se houver erro na escrita, ou um valor diferente de \texttt{\textbf{0}}, caso contrário
+      \item [] Não insere uma nova linha \texttt{`\textbackslash n'} (responsabilidade do programador)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Lendo uma string: \texttt{fgets}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+char *fgets(char *str, int tamanho, FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna \textbf{\texttt{NULL}}, se houver erro na leitura, ou o ponteiro para o primeiro caractere da string, caso contrário
+      \item [] Lê até encontrar uma nova linha \texttt{`\textbackslash n'} (  que fará parte da string) ou até receber \texttt{\textbf{tamanho - 1}} caracteres (o último é sempre \texttt{`\textbackslash 0'})
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Escrevendo blocos de bytes: \texttt{fwrite}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fwrite(void *buffer, int nro_de_bytes,
+           int count, FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna o número de unidades escritas com sucesso (pode ser menor que \textbf{\texttt{count}} \faExclamationTriangle)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Lendo blocos de bytes: \texttt{fread}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fread(void *buffer, int nro_de_bytes,
+          int count, FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna o número de unidades escritas com sucesso (pode ser menor que \textbf{\texttt{count}} \faExclamationTriangle)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{Boa prática: escrever no arquivo o tamanho da string/array antes do conteúdo (facilita na hora de ler, depois)}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Escrevendo dados formatados: \texttt{fprintf}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fprintf(FILE *fp, "tipos de saída",
+            lista de variáveis)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna o total de caracteres escritos, em caso de sucesso, ou um número negativo, caso contrário
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Lendo dados formatados: \texttt{fscanf}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fscanf(FILE *fp, "tipos de entrada",
+           lista de variáveis)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna o total de caracteres lidos, em caso de sucesso, ou a constante \textbf{\texttt{EOF}}, caso contrário
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arquivos}
+  \huge
+  \textbf{As funções \texttt{fprintf} e \texttt{fscanf} convertem os dados para caracteres, o que faz com que os arquivos sejam maiores e as operações levem mais tempo para serem executadas}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Movendo-se dentro do arquivo: \texttt{fseek}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int fseek(FILE *fp, long numbytes, int origem)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Retorna \texttt{\textbf{0}}, caso a movimentação seja bem sucedida, ou outro valor, caso contrário
+      \item [] \texttt{\textbf{origem}} pode ser \texttt{\textbf{SEEK\_SET}}, \texttt{\textbf{SEEK\_CUR}} ou \texttt{\textbf{SEEK\_END}}
+      \item [] \texttt{\textbf{numbytes}} pode ser negativo
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Voltando ao início do arquivo: \texttt{rewind}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+void rewind(FILE *fp)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item []
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Excluindo um arquivo: \texttt{remove}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int remove(char *nome_do_arquivo)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] Recebe o \textbf{caminho para o arquivo} e não o ponteiro para FILE
+      \item [] Retorna \texttt{\textbf{0}}, caso o arquivo seja removido com sucesso, ou outro valor, caso contrário
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arquivos}
+  \huge
+  \textbf{Erro ao acessar o arquivo: \texttt{ferror} e \texttt{perror}}
+  \vfill
+  \large
+  \begin{lstlisting}[language=C]
+int ferror(FILE *fp)
+void perror(char *str)
+  \end{lstlisting}
+  \vfill
+  \setlength{\leftmargini}{0pt}
+  \begin{itemize}
+      \item [] \texttt{ferror} detecta se a última operação realizada no arquivo produziu algum erro e retorna \texttt{\textbf{0}}, no caso negativo
+      \item [] \texttt{perror} imprime na tela a string \textbf{\texttt{str}} seguida da mensagem de erro do sistema
+  \end{itemize}
+\end{frame}
+\end{document}
