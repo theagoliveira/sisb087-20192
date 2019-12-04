@@ -103,8 +103,8 @@
 | 08     | 13/11/2019     | Dúvidas dos exercícios, ponteiros                                                |
 |        | 20/11/2019     | Feriado                                                                          |
 | 09     | 27/11/2019     | Dúvidas da primeira prova, alocação dinâmica                                     |
-| 10     | 04/12/2019     | AB1                                                                              |
-| 11     | 11/12/2019     | Apresentação da lista                                                            |
+| 10     | 04/12/2019     | Prova 1 (AB1)                                                                    |
+| 11     | 11/12/2019     | Apresentação da lista (AB1)                                                      |
 | 12     | 18/12/2019     |                                                                                  |
 |        | 25/12/2019     | Recesso                                                                          |
 |        | 01/01/2020     | Feriado                                                                          |
