@@ -105,7 +105,7 @@
 | 09     | 27/11/2019     | Dúvidas da primeira prova, alocação dinâmica                                     |
 | 10     | 04/12/2019     | Prova 1 (AB1)                                                                    |
 | 11     | 11/12/2019     | Apresentação da lista (AB1)                                                      |
-| 12     | 18/12/2019     |                                                                                  |
+| 12     | 18/12/2019     | Resolução da Prova 1 (atraso)                                                    |
 |        | 25/12/2019     | Recesso                                                                          |
 |        | 01/01/2020     | Feriado                                                                          |
 |        | 08/01/2020     | Recesso                                                                          |
