@@ -111,8 +111,8 @@
 |        | 08/01/2020     | Recesso                                                                          |
 |        | 15/01/2020     | Recesso                                                                          |
 | 13     | 22/01/2020     | Arquivos e exercícios                                                            |
-| 14     | 29/01/2020     | Exercícios de arquivos e introdução a estruturas de dados                        |
-| 15     | 05/02/2020     |                                                                                  |
+| 14     | 29/01/2020     | Exercícios de arquivos e introdução a estruturas de dados e listas encadeadas    |
+| 15     | 05/02/2020     | Operações com listas encadeadas (explicação e implementação)                     |
 |        | 12/02/2020     | Possível AB2                                                                     |
 |        | 19/02/2020     | Reavaliação                                                                      |
 |        | 26/02/2020     | Prova Final                                                                      |
