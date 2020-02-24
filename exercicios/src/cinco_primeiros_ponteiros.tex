@@ -1,23 +1,24 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \input{packages.tex}
 \input{configs.tex}
 
-\title{Linguagem C completa e descomplicada -- Cinco primeiros exercícios do capítulo 10}
-\author{Prof. Thiago Cavalcante}
-\date{}
+\title{Linguagem C completa e descomplicada -- 5 primeiros exercícios do capítulo 10}
 
 \begin{document}
 
-\pagenumbering{gobble}
 \maketitle
 
+\emergencystretch 3em
+
+\begin{multicols*}{2}
 \setcounter{section}{9}
 \section{Ponteiros}
 
 \setcounter{subsection}{6}
 \subsection{Exercícios}
 
+\setlength{\leftmargini}{0pt}
 \begin{enumerate}
   \item Escreva um programa que contenha duas variáveis inteiras. Compare seus endereços e exiba o maior endereço.
   \item Escreva um programa que contenha duas variáveis inteiras. Leia essas variáveis do teclado. Em seguida, compare seus endereços e exiba o conteúdo do maior endereço.
@@ -25,5 +26,5 @@
   \item Crie um programa que contenha uma matriz de \textbf{float} contendo três linhas e três colunas. Imprima o endereço de cada posição dessa matriz.
   \item Crie um programa que contenha um array de inteiros contendo cinco elementos. Utilizando apenas aritmética de ponteiros, leia esse array do teclado e imprima o dobro de cada valor lido.
 \end{enumerate}
-
+\end{multicols*}
 \end{document}

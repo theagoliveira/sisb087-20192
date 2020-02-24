@@ -1,26 +1,24 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \input{packages.tex}
 \input{configs.tex}
 
-\title{Linguagem C completa e descomplicada -- Seis primeiros exercícios do capítulo 11}
-\author{Prof. Thiago Cavalcante}
-\date{}
+\title{Linguagem C completa e descomplicada -- 6 primeiros exercícios do capítulo 11}
 
 \begin{document}
 
-\pagenumbering{gobble}
 \maketitle
 
-\sloppy
-\raggedright
+\emergencystretch 3em
 
+\begin{multicols*}{2}
 \setcounter{section}{10}
 \section{Alocação dinâmica}
 
 \setcounter{subsection}{3}
 \subsection{Exercícios}
 
+\setlength{\leftmargini}{0pt}
 \begin{enumerate}
   \item Escreva um programa que mostre o tamanho em byte que cada tipo de dados ocupa na memória: \textbf{char}, \textbf{int}, \textbf{float}, \textbf{double}.
   \item Crie uma estrutura representando um aluno de uma disciplina. Essa estrutura deve conter o número de matrícula do aluno, seu nome e as notas de três provas. Escreva um programa que mostre o tamanho em byte dessa estrutura.
@@ -29,5 +27,5 @@
   \item Faça um programa que leia um valor inteiro N não negativo. Se o valor de \textbf{N} for inválido, o usuário deverá digitar outro até que ele seja válido (ou seja, positivo). Em seguida, leia um vetor \textbf{V} contendo \textbf{N} posições de inteiros, em que cada valor deverá ser maior ou igual a 2. Esse vetor deverá ser alocado dinamicamente.
   \item Escreva um programa que \textbf{aloque dinamicamente uma matriz} de inteiros. As dimensões da matriz deverão ser lidas do usuário. Em seguida, escreva uma função que receba um valor e retorne 1, caso o valor esteja na matriz, ou retorne 0, no caso contrário.
 \end{enumerate}
-
+\end{multicols*}
 \end{document}
