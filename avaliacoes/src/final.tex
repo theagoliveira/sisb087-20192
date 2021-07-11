@@ -1,0 +1,116 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{packages.tex}
+\input{configs.tex}
+
+\title{Final}
+
+\begin{document}
+
+\maketitle
+
+\emergencystretch 3em
+
+\input{recommendations.tex}
+
+NOME: \rule{.85\textwidth}{0.1mm}
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  \item (3,5 pt $\rightarrow$ 7 x 0,5 pt) Preencha os espaços a seguir.
+
+  \begin{enumerate}
+    \item O comando \rule{1cm}{0.2mm} em uma função é usado para passar o valor de uma expressão de volta ao ponto do programa onde a função foi chamada. % return
+    \item A função \rule{1cm}{0.2mm} normalmente é usada quando se lê blocos de bytes de um arquivo binário. % fread
+    \item Uma função que chama a si mesma é uma função \rule{1cm}{0.2mm}. % recursiva
+    \item Os nomes dos cinco primeiros elementos de um array \texttt{p} são \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm} e \rule{1cm}{0.2mm}. % p[0], p[1], p[2], p[3], p[4]
+    \item A função \rule{1cm}{0.2mm} escreve uma string em um arquivo. % fputs
+    \item Um elemento de uma lista encadeada guarda informações e um \rule{1cm}{0.2mm} para o próximo elemento da lista. % ponteiro
+    \item Uma variável de ponteiro contém como valor o \rule{1cm}{0.2mm} de outra variável. % endereço
+  \end{enumerate}
+
+  \item (2,8 pt $\rightarrow$ 4 x 0,7 pt) Verdadeiro ou falso. Justifique sua resposta para afirmações falsas.
+
+  \begin{enumerate}
+    \item O operador \texttt{\&} retorna o local na memória em que seu operando está armazenado % Verdadeiro.
+    \item A função \texttt{fprintf} não pode imprimir os dados na tela. % Falso. Pode ser usada para ler dados do teclado usando o ponteiro para o arquivo stdout.
+    \item Um array pode armazenar muitos tipos diferentes de valores. % Falso. Um array armazena apenas um tipo de valor.
+    \item Os campos de diferentes estruturas podem ter nomes iguais. % Verdadeiro.
+  \end{enumerate}
+
+  \item (1,0 pt) Escreva uma função que recebe um número inteiro e retorna:
+
+  \begin{itemize}
+    \item \textcolor{white}{-}0, se ele for igual a zero
+    \item \textcolor{white}{-}1, se ele for par
+    \item -1, se ele for ímpar
+  \end{itemize}
+  % int par(int x) {
+  %   if (x == 0) {
+  %     return 0;
+  %   } else if (x % 2 == 0) {
+  %     return 1;
+  %   } else {
+  %     return -1;
+  %   }
+  % }
+
+  \item (0,7 pt) Escreva a definição para a estrutura de um elemento de uma lista encadeada que armazena uma string de 50 caracteres no seu campo de dados. Defina também um sinônimo para o nome dessa estrutura.
+
+  \vfill\null
+  \columnbreak
+
+  \item (1,0 pt) Escreva as linhas que o programa a seguir imprime na tela. Não esqueça de levar em conta quando uma linha é pulada (\texttt{\textbackslash n}). \textbf{Atenção}: não descreva o que vai ser escrito ("o programa vai imprimir isso e aquilo"), escreva \textbf{literalmente} as linhas que vão aparecer na tela quando o programa for executado.
+  % 1
+  % 4
+  % 9
+  % 16
+  % 25
+  % 36
+  % 49
+  % 64
+  % 81
+  % 100
+  % O total é 385
+
+  \begin{minted}{c}
+#include <stdio.h>
+
+int main() {
+  int x = 1;
+  int total = 0;
+  int y;
+
+  while (x <= 10) {
+    y = x * x;
+
+    printf("%d\n", y);
+    total += y;
+    x++;
+  }
+
+  printf("O total é %d\n", total);
+  return 0;
+}
+  \end{minted}
+
+  \item (1,0 pt) Complete o quadro abaixo com o código necessário para completar a tarefa a seguir: abrir um arquivo chamado \texttt{"arquivo.txt"} em uma variável chamada \texttt{arq}, no modo de leitura e escrita, de forma que os dados sejam adicionados ao final do arquivo. Escrever a string \texttt{sigla\_ufal} no arquivo.
+  % FILE* arq;
+  %
+  % arq = fopen("arquivo.txt", "a+");
+  % fputs(sigla_ufal, arq);
+
+  \begin{minted}{c}
+#include <stdio.h>
+
+int main () {
+  char sigla_ufal[5] = "UFAL";
+  // << SEU CÓDIGO ENTRA AQUI >>
+  fclose(arq);
+}
+  \end{minted}
+
+\end{enumerate}
+\end{multicols*}
+\end{document}

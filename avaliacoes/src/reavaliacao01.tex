@@ -1,0 +1,313 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{packages.tex}
+\input{configs.tex}
+
+\title{Reavaliação AB1}
+
+\begin{document}
+
+\maketitle
+
+\emergencystretch 3em
+
+\input{recommendations.tex}
+
+NOME: \rule{.85\textwidth}{0.1mm}
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  \item (3,0 pt $\rightarrow$ 6 x 0,5 pt) Preencha os espaços a seguir.
+
+  \begin{enumerate}
+    \item O comando \rule{1cm}{0.2mm} em uma função é usado para passar o valor de uma expressão de volta ao ponto do programa onde a função foi chamada. % return
+    \item Listas e tabelas de valores são armazenadas em \rule{1cm}{0.2mm}. % arrays
+    \item Uma matriz m-por-n contém \rule{1cm}{0.2mm} linhas, \rule{1cm}{0.2mm} colunas e \rule{1cm}{0.2mm} elementos. % m, n, m x n
+    \item Uma variável de ponteiro contém como valor o \rule{1cm}{0.2mm} de outra variável. % endereço
+    \item A função \rule{1cm}{0.2mm} exibe dados formatados na tela. % printf
+    \item A palavra-chave \rule{1cm}{0.2mm} introduz uma declaração de uma estrutura. % struct
+  \end{enumerate}
+
+  \item (2,1 pt $\rightarrow$ 3 x 0,7 pt) Verdadeiro ou falso. Justifique sua resposta para afirmações falsas.
+
+  \begin{enumerate}
+    \item Um elemento de uma lista que é passado para uma função na forma \texttt{a[i]} e é modificado dentro dessa função terá seu valor modificado também fora da função. % Falso. O elemento é passado por valor e isso cria uma cópia independente na memória.
+    \item Uma definição de array reserva espaço na memória para o array. % Verdadeiro.
+    \item Os campos de diferentes estruturas podem ter nomes iguais. % Verdadeiro.
+  \end{enumerate}
+
+  \item (1,5 pt) O que o programa a seguir imprime na tela? Não esqueça de levar em conta quando uma linha é pulada (\texttt{\textbackslash n}).
+  % 1
+  % 4
+  % 9
+  % 16
+  % 25
+  % 36
+  % 49
+  % 64
+  % 81
+  % 100
+  % O total é 385
+
+  \begin{minted}{c}
+#include <stdio.h>
+
+int main() {
+  int x = 1, total = 0, y;
+
+  while (x <= 10) {
+    y = x * x;
+
+    printf("%d\n", y);
+    total += y;
+    x++;
+  }
+
+  printf("O total é %d\n", total);
+  return 0;
+}
+  \end{minted}
+
+  \vfill\null
+  \columnbreak
+
+  \item (1,0 pt) Escreva uma função que retorne o menor de três números decimais. Retorne -1 se os três números forem iguais.
+  % int minimo(int a, int b, int c) {
+  %   if (a == b) && (b == c)
+  %     return -1;
+  %   if (a <= b) && (a <= c)
+  %     return a;
+  %   if (b <= a) && (b <= c)
+  %     return b;
+  %   if (c <= b) && (c <= a)
+  %     return c;
+  % }
+
+  \item (1,0 pt) Escreva uma função que recebe um par de inteiros e determina se o segundo inteiro é um múltiplo do primeiro.
+  % int multiplo(int a, int b) {
+  %   return (b % a == 0);
+  % }
+
+  \item (1,4 pt) O código a seguir contém uma função recursiva que recebe um par de inteiros, \texttt{base} e \texttt{exp}, e retorna $\text{base}^\text{exp}$. Complete o critério de parada e a chamada recursiva da função.
+  % exp == 0
+  % base, exp - 1
+
+  \begin{minted}{c}
+int exp_rec(int base, int exp) {
+  if (/* CRITÉRIO DE PARADA */) {
+    return 1;
+  } else {
+    return base * exp_rec(/* CHAMADA RECURSIVA */);
+  }
+}
+  \end{minted}
+\end{enumerate}
+\end{multicols*}
+
+\pagebreak
+
+\maketitle
+
+\input{recommendations.tex}
+
+NOME: \rule{.85\textwidth}{0.1mm}
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  \item (3,0 pt $\rightarrow$ 6 x 0,5 pt) Preencha os espaços a seguir.
+
+  \begin{enumerate}
+    \item A palavra-chave \rule{1cm}{0.2mm} é usada no cabeçalho de uma função para indicar que ela não retorna um valor ou para indicar que uma função não contém parâmetros. % void
+    \item Os elementos de um array têm em comum o fato de que possuem o mesmo \rule{1cm}{0.2mm}. % tipo
+    \item O nome do elemento de um array \texttt{d} na linha 3, coluna 5 é \rule{1cm}{0.2mm}. % d[3][5]
+    \item O operador \rule{1cm}{0.2mm} retorna o local na memória em que seu operando está armazenado. % &
+    \item Todas as strings terminam no caractere \rule{1cm}{0.2mm}. % \0
+    \item A palavra-chave \rule{1cm}{0.2mm} é usada para criar um sinônimo para um tipo de dado previamente definido. % typedef
+  \end{enumerate}
+
+  \item (2,1 pt $\rightarrow$ 3 x 0,7 pt) Verdadeiro ou falso. Justifique sua resposta para afirmações falsas.
+
+  \begin{enumerate}
+    \item Um índice de array pode ser do tipo float. % Falso. O índice precisa ser um número inteiro.
+    \item Para indicar que 100 locais devem ser reservados para o array de inteiros \texttt{p}, escreva a declaração \texttt{int p[100];} % Verdadeiro.
+    \item Para acessar um elemento em um array, especificamos o nome do array e o índice do elemento em particular. % Verdadeiro.
+  \end{enumerate}
+
+  \item (1,5 pt) O que o programa a seguir imprime na tela? Não esqueça de levar em conta quando uma linha é pulada (\texttt{\textbackslash n}).
+  % ****
+  % ++++++++
+  % ****
+  % ++++++++
+  % ****
+  % ++++++++
+
+  \begin{minted}{c}
+#include <stdio.h>
+int main() {
+  int contador = 1;
+  char simbolos_a[10] = "****";
+  char simbolos_b[10] = "++++++++";
+
+  while (contador <= 6) {
+    if (contador % 2 == 1) {
+      printf("%s\n", simbolos_a);
+    } else {
+      printf("%s\n", simbolos_b);
+    }
+    contador++;
+  }
+
+  return 0;
+}
+  \end{minted}
+
+  \vfill\null
+  \columnbreak
+
+  \item (1,0 pt) Escreva uma função que recebe um intervalo de tempo como três argumentos inteiros (horas, minutos e segundos) e retorna esse intervalo em segundos.
+  % int segundos(int h, int m, int s) {
+  %   return (s + (60 * m) + (60 * 60 * h));
+  % }
+
+  \item (1,0 pt) Escreva uma função que recebe um par de números inteiros, \texttt{base} e \texttt{exp}, e retorna $\text{base}^\text{exp}$. Não use funções da biblioteca de matemática.
+  % int expoente(int base, int exp) {
+  %   int contador, resultado;
+  %   contador = 0;
+  %   resultado = 1;
+  %
+  %   while(contador < exp) {
+  %     resultado *= base;
+  %     contador++;
+  %   }
+
+  \item (1,4 pt) O código a seguir contém uma função recursiva que recebe um array de inteiros e seu tamanho e retorna seu valor máximo. Complete o critério de parada e a chamada recursiva da função.
+  % tam == 1
+  % &array[1], tam - 1
+
+  \begin{minted}{c}
+int max_rec(int *array, int tam) {
+  int max;
+
+  if (/* CRITÉRIO DE PARADA */) {
+    return array[0];
+  } else {
+    max = max_rec(/* CHAMADA RECURSIVA */);
+    if (array[0] > max) {
+      return array[0];
+    } else {
+      return max;
+    }
+  }
+}
+  \end{minted}
+\end{enumerate}
+\end{multicols*}
+
+\pagebreak
+
+\maketitle
+
+\input{recommendations.tex}
+
+NOME: \rule{.85\textwidth}{0.1mm}
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  \item (3,0 pt $\rightarrow$ 6 x 0,5 pt) Preencha os espaços a seguir.
+
+  \begin{enumerate}
+    \item Uma função que chama a si mesma é uma função \rule{1cm}{0.2mm}. % recursiva
+    \item O número de referência a um elemento em particular de um array é chamado seu \rule{1cm}{0.2mm}. % índice
+    \item Os nomes dos cinco primeiros elementos de um array \texttt{p} são \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm}, \rule{1cm}{0.2mm} e \rule{1cm}{0.2mm}. % p[0], p[1], p[2], p[3], p[4]
+    \item O operador \rule{1cm}{0.2mm} retorna o valor do objeto ao qual seu operando aponta. % *
+    \item A função \rule{1cm}{0.2mm} lê dados formatados do teclado. % scanf
+    \item O operador \rule{1cm}{0.2mm} é usado para acessar os campos de um ponteiro para uma \texttt{struct}. % ->
+  \end{enumerate}
+
+  \item (2,1 pt $\rightarrow$ 3 x 0,7 pt) Verdadeiro ou falso. Justifique sua resposta para afirmações falsas.
+
+  \begin{enumerate}
+    \item Um array pode armazenar muitos tipos diferentes de valores. % Falso. Um array armazena apenas um tipo de valor.
+    \item O operador \texttt{\&} retorna o local na memória em que seu operando está armazenado % Verdadeiro.
+    \item O nome de uma estrutura \texttt{struct nome \{ ... \};} é opcional. % Verdadeiro.
+  \end{enumerate}
+
+  \item (1,5 pt) O que o programa a seguir imprime na tela? Não esqueça de levar em conta quando uma linha é pulada (\texttt{\textbackslash n}).
+  % >>>>>>
+  % <<<<<<
+  % >>>>>>
+  % <<<<<<
+  % >>>>>>
+  % <<<<<<
+
+  \begin{minted}{c}
+#include <stdio.h>
+
+int main() {
+  int linha = 6;
+  int coluna;
+  char simbolo;
+
+  while (linha >= 1) {
+    coluna = 1;
+    while (coluna <= 6) {
+      if (linha % 2 == 1) {
+        simbolo = '<';
+      } else {
+        simbolo = '>';
+      }
+      printf("%d", simbolo);
+      coluna++;
+    }
+    linha--;
+    printf("\n");
+  }
+
+  return 0;
+}
+  \end{minted}
+
+  \vfill\null
+  \columnbreak
+
+  \item (1,0 pt) Escreva uma função que recebe um número inteiro e retorna: 0, se ele for igual a zero; 1, se ele for par; -1, se ele for ímpar.
+  % int par(int x) {
+  %   if (x == 0) {
+  %     return 0;
+  %   } else if (x % 2 == 0) {
+  %     return 1;
+  %   } else {
+  %     return -1;
+  %   }
+  % }
+
+  \item (1,0 pt) Escreva uma função que recebe um array de inteiros e seu tamanho e retorna a média dos elementos.
+  % float media(int *array, int tam) {
+  %    float resultado;
+  %    int i;
+  %
+  %    for(i = 0; i < tam; i++)
+  %       resultado += array[i];
+  %
+  %    return (float) resultado/tam;
+
+  \item (1,4 pt) O código a seguir contém uma função recursiva que recebe um array de inteiros e seu tamanho e imprime todos os seus elementos em ordem inversa. Complete o critério de parada e a chamada recursiva da função.
+  % tam == 1
+  % &array[1], tam - 1
+
+  \begin{minted}{c}
+void impr_rec(int *array, int tam) {
+  if (/* CRITÉRIO DE PARADA */) {
+    printf("%d ", array[0]);
+  } else {
+    impr_rec(/* CHAMADA RECURSIVA */);
+    printf("%d ", array[0]);
+  }
+}
+  \end{minted}
+\end{enumerate}
+\end{multicols*}
+\end{document}

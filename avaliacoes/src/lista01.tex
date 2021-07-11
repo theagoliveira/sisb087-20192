@@ -1,0 +1,126 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{packages.tex}
+\input{configs.tex}
+
+\title{Lista 1}
+
+\begin{document}
+
+\maketitle
+
+\emergencystretch 3em
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 6.15
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 6.15
+  \item Escreva um programa que leia do teclado \textbf{20 números inteiros entre 10 e 100} (faça essa verificação e informe o usuário!) e imprima na tela todos os valores \textbf{únicos} que foram lidos. Assuma que pode ocorrer o pior caso, onde todos os 20 números são únicos. Você pode resolver de duas formas:
+
+    \begin{enumerate}
+      \item na tela se o número é único ou não, no momento que ele é lido;
+      \item todos os números únicos em um array e imprimindo-os ao final da leitura dos 20 números.
+    \end{enumerate}
+
+  Em qualquer um dos casos, utilize o \textbf{menor array possível}. \textit{(\textbf{dica:} as verificações de intervalos de números podem ser feitas com um laço \textbf{while}, que impede a continuação do programa até que o número lido  no teclado esteja no intervalo desejado.)}
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 6.39
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 6.37
+  \item Escreva uma função \textbf{recursiva} chamada \textbf{minimo\_re-} \textbf{cursivo} que recebe um array de inteiros e seu tamanho como argumentos e retorna o menor elemento do array. \textit{(\textbf{dica:} você pode ``reduzir'' o tamanho de um array em uma função recursiva de duas formas: 1) passando a referência para um elemento posterior e diminuindo o tamanho de acordo: \textbf{array, tamanho -> \&array{[}1{]}, tamanho - 1}; 2) usando dois valores, \textbf{low} e \textbf{high}, para representar os índices mínimo e máximo a serem considerados no array: \textbf{array, low, high -> array, low + 1, high})}
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 6.33
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 6.31
+  \item Escreva uma função \textbf{recursiva} chamada \textbf{testa\_palin-} \textbf{dromo} que recebe uma string e seu tamanho como argumentos e retorna 1 se essa string for um palíndromo, e 0 se não for. Assuma que a string é uma palavra simples, sem acentos, pontuação ou espaços.
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 6.38
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 6.36
+  \item Escreva uma função \textbf{recursiva} chamada \textbf{string\_in-} \textbf{vertida} que receba uma string como argumento, imprima-a de trás para a frente e não retorne nada. A função deverá encerrar o processamento e retornar quando o caractere de finalização da string `\textbackslash 0' for encontrado.
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 8.36
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 8.36
+  \item Escreva um programa que leia do teclado uma data no formato ``12/10/2010'' (não precisa fazer a verificação, assuma que a entrada sempre está nesse formato) e imprima na tela a mesma data, no formato ``12 de outubro de 2010''. \textit{(\textbf{dica:} você pode guardar as strings com os nomes de cada mês em um array de strings \textbf{char *array\_de\_strings[tamanho] = \{"string1", "string2", ...\}})}
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 8.38
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 8.38
+  \item Escreva um programa que leia do teclado um número inteiro entre \textbf{1 e 99} (faça a verificação) e imprima na tela o número escrito \textbf{por extenso}.
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 8.39
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 8.39
+  \item Escreva um programa que leia uma frase em português e codifique-a em código Morse. Assuma que a entrada contém apenas letras maiúsculas e espaços para separar as palavras (não contém acentos nem números).  Quando imprimir na tela, use um espaço entre cada letra do código Morse e três espaços entre cada palavra em código Morse.
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 10.6
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 10.6
+  \item Dadas a estrutura e declarações abaixo,
+
+    \begin{minted}{c}
+struct cliente {
+  char nome[15];
+  char sobrenome[15];
+  int numCliente;
+
+  struct {
+    char telefone[11];
+    char endereço[50];
+    char cidade[25];
+    char estado[2];
+    char cep[8];
+  } pessoal;
+} regCliente, *ptrCliente;
+
+ptrCliente = &regCliente;
+    \end{minted}
+
+  escreva as expressões para acessar cada campo pedido a seguir:
+
+    \begin{enumerate}
+      \item Campo \textbf{sobrenome} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{sobrenome} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{nome} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{nome} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{numCliente} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{numCliente} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{telefone} do campo \textbf{pessoal} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{telefone} do campo \textbf{pessoal} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{endereço} do campo \textbf{pessoal} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{endereço} do campo \textbf{pessoal} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{cidade} do campo \textbf{pessoal} da estrutura \textbf{regCliente}.
+
+      \pagebreak
+      \vspace*{0.0cm}
+
+      \item Campo \textbf{cidade} do campo \textbf{pessoal} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{estado} do campo \textbf{pessoal} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{estado} do campo \textbf{pessoal} da estrutura apontada por \textbf{ptrCliente}.
+      \item Campo \textbf{cep} do campo \textbf{pessoal} da estrutura \textbf{regCliente}.
+      \item Campo \textbf{cep} do campo \textbf{pessoal} da estrutura apontada por \textbf{ptrCliente}.
+    \end{enumerate}
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 5.19/20
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 5.19/20
+  \item  Escreva uma função que imprima na tela um retângulo sólido cujos lados são lidos nos parâmetros inteiros \textbf{lado\_hor} e \textbf{lado\_ver}. O retângulo deve ser formado com qualquer caractere lido no parâmetro \textbf{preenchimento}. Por exemplo, se \textbf{lado\_hor} é 7, \textbf{lado\_ver} é 5 e \textbf{preenchimento} é `X', a função deverá imprimir
+
+    \begin{minted}{c}
+XXXXXXX
+XXXXXXX
+XXXXXXX
+XXXXXXX
+XXXXXXX
+    \end{minted}
+
+  % SOURCES
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 4th Edition - Exercise 5.28
+  % - DEITEL, H. M.; DEITEL, P. J. C: How to Program, 6th Edition - Exercise 5.28
+  \item Escreva uma função que leia um número inteiro do teclado e retorne o número com seus dígitos invertidos. Por exemplo, dado o número 5234, a função deverá retornar 4325.
+\end{enumerate}
+\end{multicols*}
+\end{document}

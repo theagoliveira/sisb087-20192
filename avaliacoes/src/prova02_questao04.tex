@@ -1,0 +1,123 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{packages.tex}
+\input{configs.tex}
+
+\title{Prova 2 -- Questão 4}
+
+\begin{document}
+
+\maketitle
+
+\emergencystretch 3em
+
+\input{recommendations.tex}
+
+NOME: \rule{.85\textwidth}{0.1mm}
+
+\begin{multicols*}{2}
+\setlength{\leftmargini}{0pt}
+\begin{enumerate}
+  \item [4.] (3,1 pt) Leia o código abaixo e faça as tarefas:
+
+  \begin{minted}{c}
+#include <stdio.h>
+#include <stdlib.h>
+
+// DECLARAÇÃO DO ELEMENTO DA LISTA
+struct lista {
+  int dados;
+  struct lista* prox;
+};
+
+// SINÔNIMO PARA STRUCT LISTA
+typedef struct lista Lista;
+
+// FUNÇÕES concatena_listas E media_lista
+Lista* concatena_listas(Lista* l1, Lista* l2) {
+  Lista* p;
+  // << SEU CÓDIGO ENTRA AQUI >>
+  return l1;
+}
+
+float media_lista(Lista* l) {
+  Lista* p;
+  int soma = 0;
+  int contador = 0;
+  // << SEU CÓDIGO ENTRA AQUI >>
+  return (float) soma/contador;
+}
+
+int main () {
+  int i;
+  Lista* lst1, lst2;
+
+  lst1 = cria_lista();
+  lst2 = cria_lista();
+
+  for(i = 1; i < 4; i++) {
+    lst1 = insere_lista(lst1, i);
+    lst2 = insere_lista(lst2, i + 6);
+  }
+
+  imprime_lista(lst1);
+  printf("\n%f\n", media_lista(lst1));
+
+  imprime_lista(lst2);
+  printf("\n%f\n", media_lista(lst2));
+
+  lst1 = concatena_listas(lst1, lst2);
+
+  imprime_lista(lst1);
+  printf("\n%f\n", media_lista(lst1));
+}
+  \end{minted}
+
+  \vfill\null
+  \columnbreak
+
+  \begin{enumerate}
+    \item (1,3 pt) Complete a função \texttt{concatena\_listas}, que deve inserir a lista \texttt{l2} no final da lista \texttt{l1}.
+
+    \begin{minted}{c}
+Lista* concatena(Lista* l1, Lista* l2) {
+  Lista* p;
+  // RESPOSTA ////////////////////////////////
+  for(p = l1; p->prox != NULL; p = p->prox);
+  p->prox = l2;
+  ////////////////////////////////////////////
+  return l1;
+}
+    \end{minted}
+
+    \item (1,0 pt) Complete a função \texttt{media\_lista}, que calcula a média dos elementos em uma lista.
+
+    \begin{minted}{c}
+float media_lista(Lista* l) {
+  Lista* p;
+  int soma = 0;
+  int contador = 0;
+  // RESPOSTA ////////////////////////////////
+  for(p = l; p != NULL; p = p->prox) {
+    soma += p->dados;
+    contador++;
+  }
+  ////////////////////////////////////////////
+  return (float) soma/contador;
+}
+    \end{minted}
+
+    \item (0,8 pt) Escreva o que vai ser impresso na tela com a execução do programa.
+
+    \begin{minted}{c}
+3 2 1
+2.00
+9 8 7
+8.00
+3 2 1 9 8 7
+5.00
+    \end{minted}
+  \end{enumerate}
+\end{enumerate}
+\end{multicols*}
+\end{document}
