@@ -4,18 +4,13 @@
 | ------- | -------- | ------------- | ------- | ------------------ | --------------------- | ---- |
 | SISB087 | 3º       | 72h           | 02/2019 | 2019.2 (28 alunos) | Quarta, 19:00 - 22:30 | 5    |
 
-- [Lista de discussão](#lista-de-discuss%c3%a3o)
 - [Ementa](#ementa)
 - [Livros sugeridos](#livros-sugeridos)
-  - [Programação em C](#programa%c3%a7%c3%a3o-em-c)
+  - [Programação em C](#programação-em-c)
   - [Estruturas de dados com exemplos em C](#estruturas-de-dados-com-exemplos-em-c)
   - [Estruturas de dados com exemplos em outras linguagens](#estruturas-de-dados-com-exemplos-em-outras-linguagens)
 - [Aulas](#aulas)
 - [Recursos](#recursos)
-
-## Lista de discussão
-
-[Google Groups: sisb087_20192](https://groups.google.com/forum/#!forum/sisb087_20192)
 
 ## Ementa
 
@@ -115,7 +110,7 @@
 | 15     | 05/02/2020     | Operações com listas encadeadas (explicação e implementação)                     |
 |        | 12/02/2020     | AB2                                                                              |
 |        | 19/02/2020     | Reavaliação                                                                      |
-|        | ?              | Prova Final                                                                      |
+|        | 27/02/2020     | Prova Final                                                                      |
 
 ## Recursos
 
